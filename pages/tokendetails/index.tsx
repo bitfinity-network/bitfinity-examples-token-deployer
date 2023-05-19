@@ -57,7 +57,8 @@ export default function TokenDetails() {
         if (window && window.ethereum) {
             try {
                 // wasAdded is a boolean. Like any RPC method, an error may be thrown.
-                const wasAdded = await window.ethereum.request({
+                const ethereum: any = window.ethereum;
+                const wasAdded = await ethereum.request({
                     method: "wallet_watchAsset",
                     params: {
                         type: "ERC20", // Initially only supports ERC20, but eventually more!

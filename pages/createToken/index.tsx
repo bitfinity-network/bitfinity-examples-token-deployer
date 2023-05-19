@@ -86,6 +86,9 @@ export default function Token() {
                     duration: 9000,
                     isClosable: true,
                 })
+                router.push({
+                    pathname: '/tokendetails',
+                })
             } catch (error) {
                 console.log(error)
             }
