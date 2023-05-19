@@ -26,6 +26,7 @@ import { ArrowBackIcon } from "@chakra-ui/icons"
 import TokenABI from "../../utils/abi/tokenABI.json"
 import { useRouter } from "next/router"
 import { parseEther } from "ethers/lib/utils.js"
+import { ConnectWalletButton } from "@/components/ui"
 
 const avatarStyles = [
     "adventurer",
@@ -241,16 +242,20 @@ export default function Token() {
                                     </Box>
                                     <Box>
                                         <Center>
-                                            <Button
-                                                isLoading={isLoading}
-                                                colorScheme={"green"}
-                                                bg={"green.400"}
-                                                rounded={"full"}
-                                                px={4}
-                                                onClick={() => deployToken()}
-                                            >
-                                                Deploy Token
-                                            </Button>
+                                            {address ? (
+                                                <Button
+                                                    isLoading={isLoading}
+                                                    colorScheme={"green"}
+                                                    bg={"green.400"}
+                                                    rounded={"full"}
+                                                    px={4}
+                                                    onClick={() => deployToken()}
+                                                >
+                                                    Deploy Token
+                                                </Button>
+                                            ) :
+                                                <ConnectWalletButton />
+                                            }
                                         </Center>
                                     </Box>
                                 </Stack>
