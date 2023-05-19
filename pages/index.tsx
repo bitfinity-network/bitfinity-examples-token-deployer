@@ -5,7 +5,6 @@ import Link from "next/link"
 export default function CallToActionWithAnnotation() {
     return (
         <>
-
             <Box pb={10}>
                 <Container maxW={"3xl"}>
                     <Stack

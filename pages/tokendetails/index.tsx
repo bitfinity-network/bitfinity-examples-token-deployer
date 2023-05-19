@@ -37,8 +37,13 @@ export default function TokenDetails() {
     const toast = useToast()
     const router = useRouter()
     const { address } = useAccount()
-    const functionParams = router.query.id ? { name: "tokens", param: [router.query.id] } : { name: "addressToToken", param: [address] }
-    const { data } = useReadContractHook(functionParams.name, functionParams.param)
+    const functionParams = router.query.id
+        ? { name: "tokens", param: [router.query.id] }
+        : { name: "addressToToken", param: [address] }
+    const { data } = useReadContractHook(
+        functionParams.name,
+        functionParams.param
+    )
     const token: Token = data as Token
 
     console.log("data", data)
@@ -58,7 +63,7 @@ export default function TokenDetails() {
         if (window && window.ethereum) {
             try {
                 // wasAdded is a boolean. Like any RPC method, an error may be thrown.
-                const ethereum: any = window.ethereum;
+                const ethereum: any = window.ethereum
                 const wasAdded = await ethereum.request({
                     method: "wallet_watchAsset",
                     params: {

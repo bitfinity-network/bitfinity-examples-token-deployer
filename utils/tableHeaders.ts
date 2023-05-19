@@ -35,5 +35,5 @@ export const headers = [
     {
         title: "Actions",
         isNumeric: true,
-    }
+    },
 ]

@@ -139,10 +139,16 @@ export default function Tokens() {
                                             />
                                         </Td>
                                         <Td>
-                                            <Button onClick={() => router.push({
-                                                pathname: `/tokendetails`,
-                                                query: { id: key }
-                                            })}>View</Button>
+                                            <Button
+                                                onClick={() =>
+                                                    router.push({
+                                                        pathname: `/tokendetails`,
+                                                        query: { id: key },
+                                                    })
+                                                }
+                                            >
+                                                View
+                                            </Button>
                                         </Td>
                                     </Tr>
                                 )
