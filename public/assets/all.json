@@ -1,0 +1,82 @@
+[
+    {
+        "id": "0",
+        "name": "Ryno NFT Art #0",
+        "description": "Ryno NFT Art #1 Jubaca. Fierce Warrior of the Ga clan",
+        "image": "ipfs://bafybeihfth2vadxya2ph23ox2valfsgsbzhazn5im5uku652l55aiknwoi",
+        "metaPath": "ipfs://bafkreigd6divr7mcfn74244p3ukfm7hvic5iml6emmpc7qfjd54atrowxi",
+        "imagePath": "0.jpeg"
+    },
+    {
+        "id": "1",
+        "name": "Ryno NFT Art #1",
+        "description": "Ryno NFT Art #1 Jubaca. Fierce Warrior of the Ga clan",
+        "image": "ipfs://bafybeihfth2vadxya2ph23ox2valfsgsbzhazn5im5uku652l55aiknwoi",
+        "metaPath": "ipfs://bafkreigd6divr7mcfn74244p3ukfm7hvic5iml6emmpc7qfjd54atrowxi",
+        "imagePath": "1.jpeg"
+    },
+    {
+        "id": "2",
+        "name": "Ryno NFT Art #2",
+        "description": "Ryno NFT Art #1 Tetteh. Fierce Warrior of the Ga clan",
+        "image": "ipfs://bafybeifj45pychm7pf3mclxgkzvoi4lsvduopwdezn7xyod3dtzl6apr4q",
+        "metaPath": "ipfs://bafkreic4lv2uy22ptcro34m6z6dqmormcsyy53iovjxqduzjkcea5le3wq",
+        "imagePath": "2.png"
+    },
+    {
+        "id": "3",
+        "name": "Ryno NFT Art #3",
+        "description": "Ryno NFT Art #1 Naa Kuale. Healer of the Ga clan",
+        "image": "ipfs://bafybeigcbchb2lox26rjawoueivpe3u7zcuq22yimffysi765oedcqjoky",
+        "metaPath": "ipfs://bafkreia4go6o7av7qx3yigodywzv7vtcl2ks6ywt52mcug3rsxgspruwpu",
+        "imagePath": "3.png"
+    },
+    {
+        "id": "4",
+        "name": "Ryno NFT Art #4",
+        "description": "Ryno NFT Art #4 Oko. Scholar of the Ga clan",
+        "image": "ipfs://ipfs://bafybeibtnbf6k62mpggan2ezqdtq6p3gouaoj5xn7ee4npts4fpxl6nvc4",
+        "metaPath": "ipfs://bafkreigc5tncyg2qtj5o5qtybqbcrvhacrua6ff3zy2jgcuwuvo7gvsjuy",
+        "imagePath": "4.png"
+    },
+    {
+        "id": "5",
+        "name": "Ryno NFT Art #5",
+        "description": "Ryno NFT Art #5 Terkpeki. Artist of the Ga clan",
+        "image": "ipfs://bafybeicagrr5z4ce6a2nffy2hu2azjc4eius4nx3jyh656qtkwswffz56i",
+        "metaPath": "ipfs://bafkreiadmauuv6wa3xhr2ucac7o57sinmhzfeyoyguehecz7byex5jpmf4",
+        "imagePath": "5.png"
+    },
+    {
+        "id": "6",
+        "name": "Ryno NFT Art #6",
+        "description": "Ryno NFT Art #6 Mawufemor. The Seer of the Ewe clan",
+        "image": "ipfs://bafybeibxcyflakityebpp5zzfxctlf3pxku4ndvygqfrtxn6x4evkwitri",
+        "metaPath": "ipfs://bafkreieb75m2i3g5tdlwxulvkydxhle7mpe7tkxszkry4ujl2qsehh6w7u",
+        "imagePath": "6.png"
+    },
+    {
+        "id": "7",
+        "name": "Ryno NFT Art #7",
+        "description": "Ryno NFT Art #7 Nene. The Prince of the Ga clan",
+        "image": "ipfs://bafybeihdfafadns4apscfcgxqiygw36c2vl3fjeopivquzn6dekinkksi4",
+        "metaPath": "ipfs://bafkreieb2zcyhwiprt7nmpi33d62ydfjdfdhgkesipngefsq433sr6qc2u",
+        "imagePath": "7.png"
+    },
+    {
+        "id": "8",
+        "name": "Ryno NFT Art #8",
+        "description": "Ryno NFT Art #8 Astwei. Princess of the Ga clan",
+        "image": "ipfs://bafybeiciotw5bxhsgrppg5bntprauqasmr7gwprubuikhg557lql544uza",
+        "metaPath": "ipfs://bafkreibos47365mp23kaixn4dkqie2cvekg23zhkqf5eeeomli26zxs6sa",
+        "imagePath": "8.png"
+    },
+    {
+        "id": "9",
+        "name": "Ryno NFT Art #9",
+        "description": "Ryno NFT Art #9 Manye Naa Dedei. Queen of the Ga clan",
+        "image": "ipfs://bafybeih6kf7zrszqjtxhyvwpwq5yi5z533cqqlo7bnh2cdakfmpucrb4le",
+        "metaPath": "ipfs://bafkreic6fvgt67qvz4bsmgul3vykd72t74giyojosolzk4dyk3jdtg25nm",
+        "imagePath": "9.png"
+    }
+]
