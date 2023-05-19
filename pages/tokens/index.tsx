@@ -6,11 +6,13 @@ import { useAccount, useContractWrite, usePrepareContractWrite } from 'wagmi';
 import { contractAddress } from '@/utils/constants';
 import TokenABI from "../../utils/abi/tokenABI.json";
 import { parseEther } from 'ethers/lib/utils.js';
+import { Token } from '@/types';
 
 export default function Tokens() {
     const toast = useToast();
     const { address } = useAccount()
     const { data } = useReadContractHook("getAllTokens", [])
+    const tokens: Token[] = data as Token[]
     const [seleckedId, setSelectedId] = useState(0)
     const [fee, setFee] = useState("0.0001");
     console.log("data", data)
@@ -76,7 +78,7 @@ export default function Tokens() {
                         </Tr>
                     </Thead>
                     <Tbody>
-                        {data?.map((item, key) => {
+                        {tokens.length && tokens?.map((item, key) => {
                             return (
                                 <Tr key={item.tokenAddress}>
                                     <Td>{item.name}</Td>
@@ -86,7 +88,7 @@ export default function Tokens() {
                                         <Text isTruncated w="100px">{item.tokenAddress}</Text>
                                     </Td>
                                     <Td isNumeric>{parseInt(item.totalSupply)}</Td>
-                                    <Td cursor="pointer" onClick={() => { copyAddress(item.owneer) }}>
+                                    <Td cursor="pointer" onClick={() => { copyAddress(item.owner) }}>
                                         <Text isTruncated w="100px">{item.owner}</Text>
                                     </Td>
                                     <Td isNumeric>{parseInt(item.fee) / 1e18}</Td>

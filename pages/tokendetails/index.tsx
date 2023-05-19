@@ -4,12 +4,14 @@ import { useReadContractHook } from '@/hooks/useReadContract'
 import { useAccount, useContractWrite, usePrepareContractWrite } from 'wagmi';
 import { useRouter } from 'next/router';
 import { ArrowBackIcon } from '@chakra-ui/icons';
+import { Token } from '@/types';
 
 export default function TokenDetails() {
     const toast = useToast();
     const { address } = useAccount()
     const router = useRouter()
     const { data } = useReadContractHook("addressToToken", [address])
+    const token: Token = data as Token;
 
     console.log("data", data);
 
@@ -33,10 +35,10 @@ export default function TokenDetails() {
                     params: {
                         type: 'ERC20', // Initially only supports ERC20, but eventually more!
                         options: {
-                            address: data?.tokenAddress, // The address that the token is at.
-                            symbol: data?.symbol, // A ticker symbol or shorthand, up to 5 chars.
-                            decimals: data?.decimals, // The number of decimals in the token
-                            image: data?.image, // A string url of the token logo
+                            address: token?.tokenAddress, // The address that the token is at.
+                            symbol: token?.symbol, // A ticker symbol or shorthand, up to 5 chars.
+                            decimals: token?.decimals, // The number of decimals in the token
+                            image: token?.image, // A string url of the token logo
                         },
                     },
                 });
@@ -67,7 +69,7 @@ export default function TokenDetails() {
                                         <ArrowBackIcon />
                                     </Button>
                                     <Heading size='md'>
-                                        {data.name}
+                                        {token.name}
                                     </Heading>
                                 </HStack>
 
@@ -77,7 +79,7 @@ export default function TokenDetails() {
                                             <Image
                                                 borderRadius='full'
                                                 boxSize='100px'
-                                                src={data?.image}
+                                                src={token?.image}
                                                 alt='token-img'
                                             />
                                         </HStack>
@@ -93,24 +95,24 @@ export default function TokenDetails() {
 
                                         <Box>
                                             <FormLabel>Token Symbol</FormLabel>
-                                            <Input type='text' readOnly placeholder='ATK' value={data?.symbol} />
+                                            <Input type='text' readOnly placeholder='ATK' value={token?.symbol} />
                                         </Box>
                                         <Box>
                                             <FormLabel>Token Address</FormLabel>
-                                            <Input type='text' readOnly placeholder='ATK' value={data?.tokenAddress} />
+                                            <Input type='text' readOnly placeholder='ATK' value={token?.tokenAddress} />
                                         </Box>
                                         <HStack>
                                             <Box>
                                                 <FormLabel>Decimals</FormLabel>
-                                                <Input type='text' readOnly placeholder='18' value={data?.decimals} />
+                                                <Input type='text' readOnly placeholder='18' value={token?.decimals} />
                                             </Box>
                                             <Box>
                                                 <FormLabel>Total Supply</FormLabel>
-                                                <Input type='text' readOnly placeholder='ATK' value={data?.totalSupply} />
+                                                <Input type='text' readOnly placeholder='ATK' value={token?.totalSupply} />
                                             </Box>
                                             <Box>
                                                 <FormLabel>Token Fee (in ETH)</FormLabel>
-                                                <Input type='text' readOnly placeholder='ATK' value={parseInt(data?.fee) / 1e18} />
+                                                <Input type='text' readOnly placeholder='ATK' value={parseInt(token?.fee) / 1e18} />
                                             </Box>
 
                                         </HStack>

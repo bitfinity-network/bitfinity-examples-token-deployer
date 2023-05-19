@@ -29,20 +29,6 @@ import {
 import { ConnectWalletButton } from "../ConnectWallet"
 import Link from "next/link"
 
-const NavLink = ({ children }: { children: ReactNode }) => (
-    <Link
-        px={2}
-        py={1}
-        rounded={"md"}
-        _hover={{
-            textDecoration: "none",
-            bg: useColorModeValue("gray.200", "gray.700"),
-        }}
-        href={"#"}
-    >
-        {children}
-    </Link>
-)
 
 export function Nav() {
     const { colorMode, toggleColorMode } = useColorMode()
