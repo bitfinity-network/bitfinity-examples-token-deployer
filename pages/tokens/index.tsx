@@ -17,16 +17,18 @@ import {
     useToast,
 } from "@chakra-ui/react"
 import React, { useState } from "react"
-import { headers } from "./tableData"
+import { headers } from "../../utils/tableHeaders"
 import { useReadContractHook } from "@/hooks/useReadContract"
 import { useAccount, useContractWrite, usePrepareContractWrite } from "wagmi"
 import { contractAddress } from "@/utils/constants"
 import TokenABI from "../../utils/abi/tokenABI.json"
 import { parseEther } from "ethers/lib/utils.js"
 import { Token } from "@/types"
+import { useRouter } from "next/router"
 
 export default function Tokens() {
     const toast = useToast()
+    const router = useRouter()
     const { address } = useAccount()
     const { data } = useReadContractHook("getAllTokens", [])
     const tokens: Token[] = data as Token[]
@@ -96,7 +98,7 @@ export default function Tokens() {
                         </Tr>
                     </Thead>
                     <Tbody>
-                        {tokens.length &&
+                        {tokens &&
                             tokens?.map((item, key) => {
                                 return (
                                     <Tr key={item.tokenAddress}>
@@ -135,6 +137,12 @@ export default function Tokens() {
                                                 name={item.name}
                                                 src={item.image}
                                             />
+                                        </Td>
+                                        <Td>
+                                            <Button onClick={() => router.push({
+                                                pathname: `/tokendetails`,
+                                                query: { id: key }
+                                            })}>View</Button>
                                         </Td>
                                     </Tr>
                                 )

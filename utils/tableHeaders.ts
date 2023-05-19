@@ -32,4 +32,8 @@ export const headers = [
         title: "Image",
         isNumeric: false,
     },
+    {
+        title: "Actions",
+        isNumeric: true,
+    }
 ]

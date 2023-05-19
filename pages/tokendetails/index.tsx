@@ -35,9 +35,10 @@ import { Token } from "@/types"
 
 export default function TokenDetails() {
     const toast = useToast()
-    const { address } = useAccount()
     const router = useRouter()
-    const { data } = useReadContractHook("addressToToken", [address])
+    const { address } = useAccount()
+    const functionParams = router.query.id ? { name: "tokens", param: [router.query.id] } : { name: "addressToToken", param: [address] }
+    const { data } = useReadContractHook(functionParams.name, functionParams.param)
     const token: Token = data as Token
 
     console.log("data", data)
