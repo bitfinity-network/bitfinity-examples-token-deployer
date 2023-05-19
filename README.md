@@ -1,8 +1,8 @@
-![nft-interface](https://user-images.githubusercontent.com/23501023/236430141-fbcda395-ebf9-449e-abce-d710d52337dd.png)
+![token-deployer-interface](public/interface.png)
 
-## Ryno NFT Marketplace Template
+## Token Deployer
 
-This is a react template for an NFT Marketplace made with chakra UI
+This is a react app for a Token Deployer app
 
 First, run the development server:
 
