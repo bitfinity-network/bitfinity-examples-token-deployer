@@ -1,12 +1,5 @@
 import Head from "next/head"
-import {
-    Box,
-    Heading,
-    Container,
-    Text,
-    Button,
-    Stack,
-} from "@chakra-ui/react"
+import { Box, Heading, Container, Text, Button, Stack } from "@chakra-ui/react"
 import Link from "next/link"
 
 export default function CallToActionWithAnnotation() {
@@ -32,14 +25,13 @@ export default function CallToActionWithAnnotation() {
                             fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }}
                             lineHeight={"110%"}
                         >
-
                             <Text as={"span"} color={"green.400"}>
                                 Deploy ERC20 Token
                             </Text>
                         </Heading>
                         <Text color={"gray.500"}>
-                            This project is to illustrate how to deploy an ERC20 Token
-                            on the evmc and uses Bitfinity Testnet Network
+                            This project is to illustrate how to deploy an ERC20
+                            Token on the evmc and uses Bitfinity Testnet Network
                         </Text>
                         <Stack
                             direction={"row"}
@@ -49,7 +41,6 @@ export default function CallToActionWithAnnotation() {
                             position={"relative"}
                         >
                             <Link href="/createToken">
-
                                 <Button
                                     colorScheme={"green"}
                                     bg={"green.400"}

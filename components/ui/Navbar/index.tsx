@@ -29,7 +29,6 @@ import {
 import { ConnectWalletButton } from "../ConnectWallet"
 import Link from "next/link"
 
-
 export function Nav() {
     const { colorMode, toggleColorMode } = useColorMode()
     return (
@@ -41,10 +40,11 @@ export function Nav() {
                     justifyContent={"space-between"}
                 >
                     <HStack>
-                        <Link href="/"> <Image src="logo.png" h="24px" alt="logo" /></Link>
+                        <Link href="/">
+                            {" "}
+                            <Image src="logo.png" h="24px" alt="logo" />
+                        </Link>
                     </HStack>
-
-
 
                     <Flex alignItems={"center"}>
                         <Stack direction={"row"} spacing={7}>

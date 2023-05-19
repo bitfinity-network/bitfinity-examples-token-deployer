@@ -1,42 +1,77 @@
-
-import { contractAddress } from '@/utils/constants';
-import { Box, Button, Card, CardBody, CardHeader, Center, Checkbox, Container, FormControl, FormHelperText, FormLabel, HStack, Heading, Image, Input, Select, Stack, VStack, useToast } from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react'
-import { useAccount, useContractWrite, usePrepareContractWrite } from 'wagmi';
+import { contractAddress } from "@/utils/constants"
+import {
+    Box,
+    Button,
+    Card,
+    CardBody,
+    CardHeader,
+    Center,
+    Checkbox,
+    Container,
+    FormControl,
+    FormHelperText,
+    FormLabel,
+    HStack,
+    Heading,
+    Image,
+    Input,
+    Select,
+    Stack,
+    VStack,
+    useToast,
+} from "@chakra-ui/react"
+import React, { useEffect, useState } from "react"
+import { useAccount, useContractWrite, usePrepareContractWrite } from "wagmi"
 import { ArrowBackIcon } from "@chakra-ui/icons"
-import TokenABI from "../../utils/abi/tokenABI.json";
-import { useRouter } from 'next/router';
-import { parseEther } from 'ethers/lib/utils.js';
+import TokenABI from "../../utils/abi/tokenABI.json"
+import { useRouter } from "next/router"
+import { parseEther } from "ethers/lib/utils.js"
 
-const avatarStyles = ["adventurer", "adventurer-neutral", "avataaars", "identicon", "icons", "initials", "thumbs"]
-
+const avatarStyles = [
+    "adventurer",
+    "adventurer-neutral",
+    "avataaars",
+    "identicon",
+    "icons",
+    "initials",
+    "thumbs",
+]
 
 // `https://avatars.dicebear.com/api/initials/${symbol}.svg`;
 export default function Token() {
     const router = useRouter()
     const { address } = useAccount()
-    const [generateImage, setGenerateImage] = useState(true);
+    const [generateImage, setGenerateImage] = useState(true)
     const [avatarStyle, setAvatarStyle] = useState("identicon")
-    const [decimals, setDecimals] = useState(18);
-    const [totalSupply, setTotalSupply] = useState(1000000);
-    const [name, setName] = useState("");
-    const [symbol, setSymbol] = useState("");
-    const [image, setImage] = useState<string>("");
-    const [fee, setFee] = useState(0.0001);
+    const [decimals, setDecimals] = useState(18)
+    const [totalSupply, setTotalSupply] = useState(1000000)
+    const [name, setName] = useState("")
+    const [symbol, setSymbol] = useState("")
+    const [image, setImage] = useState<string>("")
+    const [fee, setFee] = useState(0.0001)
     const toast = useToast()
 
     const { config, error } = usePrepareContractWrite({
         address: contractAddress,
         abi: TokenABI,
         functionName: "createToken",
-        args: [name, symbol, decimals, totalSupply, image, parseEther(fee.toString())],
+        args: [
+            name,
+            symbol,
+            decimals,
+            totalSupply,
+            image,
+            parseEther(fee.toString()),
+        ],
     })
     console.log("config", config)
     const { isLoading, writeAsync: createToken } = useContractWrite(config)
 
     useEffect(() => {
         if (generateImage) {
-            setImage(`https://api.dicebear.com/6.x/${avatarStyle}/svg?seed=${name}`)
+            setImage(
+                `https://api.dicebear.com/6.x/${avatarStyle}/svg?seed=${name}`
+            )
         }
     }, [name, avatarStyle, generateImage])
 
@@ -55,9 +90,7 @@ export default function Token() {
                 console.log(error)
             }
         }
-
     }
-
 
     return (
         <Box pt={10}>
@@ -69,25 +102,22 @@ export default function Token() {
                                 <Button onClick={() => router.back()}>
                                     <ArrowBackIcon />
                                 </Button>
-                                <Heading size='md'>
-                                    Create Token
-                                </Heading>
+                                <Heading size="md">Create Token</Heading>
                             </HStack>
 
                             <HStack justifyContent="center">
                                 <Box>
                                     <HStack justifyContent="center">
                                         <Image
-                                            borderRadius='full'
-                                            boxSize='100px'
+                                            borderRadius="full"
+                                            boxSize="100px"
                                             src={image}
-                                            alt='token-img'
+                                            alt="token-img"
                                         />
                                     </HStack>
                                 </Box>
                             </HStack>
                         </HStack>
-
                     </CardHeader>
                     <CardBody>
                         <Box>
@@ -95,61 +125,127 @@ export default function Token() {
                                 <Stack gap={4} w="full">
                                     <Box>
                                         <FormLabel>Token Name</FormLabel>
-                                        <Input type='text' placeholder='Awesome Token' value={name} onChange={(e) => setName(e.target.value)} />
+                                        <Input
+                                            type="text"
+                                            placeholder="Awesome Token"
+                                            value={name}
+                                            onChange={(e) =>
+                                                setName(e.target.value)
+                                            }
+                                        />
                                     </Box>
                                     <Box>
                                         <FormLabel>Token Symbol</FormLabel>
-                                        <Input type='text' placeholder='ATK' value={symbol} onChange={(e) => setSymbol(e.target.value)} />
+                                        <Input
+                                            type="text"
+                                            placeholder="ATK"
+                                            value={symbol}
+                                            onChange={(e) =>
+                                                setSymbol(e.target.value)
+                                            }
+                                        />
                                     </Box>
                                     <HStack>
                                         <Box>
                                             <FormLabel>Decimals</FormLabel>
-                                            <Input type='text' placeholder='18' value={decimals} onChange={(e) => setSymbol(e.target.value)} />
+                                            <Input
+                                                type="text"
+                                                placeholder="18"
+                                                value={decimals}
+                                                onChange={(e) =>
+                                                    setSymbol(e.target.value)
+                                                }
+                                            />
                                         </Box>
                                         <Box>
                                             <FormLabel>Total Supply</FormLabel>
-                                            <Input type='text' placeholder='ATK' value={totalSupply} onChange={(e) => setTotalSupply(Number(e.target.value))} />
+                                            <Input
+                                                type="text"
+                                                placeholder="ATK"
+                                                value={totalSupply}
+                                                onChange={(e) =>
+                                                    setTotalSupply(
+                                                        Number(e.target.value)
+                                                    )
+                                                }
+                                            />
                                         </Box>
                                         <Box>
-                                            <FormLabel>Token Fee (in ETH)</FormLabel>
-                                            <Input type='text' placeholder='ATK' value={fee} onChange={(e) => setFee(Number(e.target.value))} />
+                                            <FormLabel>
+                                                Token Fee (in ETH)
+                                            </FormLabel>
+                                            <Input
+                                                type="text"
+                                                placeholder="ATK"
+                                                value={fee}
+                                                onChange={(e) =>
+                                                    setFee(
+                                                        Number(e.target.value)
+                                                    )
+                                                }
+                                            />
                                         </Box>
-
                                     </HStack>
-                                    {
-                                        !generateImage ?
-                                            (
-                                                <Box pt={8}>
-                                                    <FormLabel>Token Image Url</FormLabel>
-                                                    <Input type='text' onChange={(e) => setImage(e.target.value)} />
-                                                    <FormHelperText></FormHelperText>
-                                                </Box>
-                                            )
-                                            :
-                                            null
-                                    }
+                                    {!generateImage ? (
+                                        <Box pt={8}>
+                                            <FormLabel>
+                                                Token Image Url
+                                            </FormLabel>
+                                            <Input
+                                                type="text"
+                                                onChange={(e) =>
+                                                    setImage(e.target.value)
+                                                }
+                                            />
+                                            <FormHelperText></FormHelperText>
+                                        </Box>
+                                    ) : null}
 
-                                    {
-                                        generateImage ? (
-                                            <Box pt={5}>
-                                                <FormLabel>Image Type</FormLabel>
-                                                <Select variant='outline' value={avatarStyle} onChange={(e) => setAvatarStyle(e.target.value)}>
-                                                    {avatarStyles.map((item) => {
-                                                        return (
-                                                            <option key={item} value={item}>{item}</option>
-                                                        )
-                                                    })}
-                                                </Select>
-                                            </Box>
-                                        )
-                                            : null
-                                    }
+                                    {generateImage ? (
+                                        <Box pt={5}>
+                                            <FormLabel>Image Type</FormLabel>
+                                            <Select
+                                                variant="outline"
+                                                value={avatarStyle}
+                                                onChange={(e) =>
+                                                    setAvatarStyle(
+                                                        e.target.value
+                                                    )
+                                                }
+                                            >
+                                                {avatarStyles.map((item) => {
+                                                    return (
+                                                        <option
+                                                            key={item}
+                                                            value={item}
+                                                        >
+                                                            {item}
+                                                        </option>
+                                                    )
+                                                })}
+                                            </Select>
+                                        </Box>
+                                    ) : null}
                                     <Box>
-                                        <Checkbox isChecked={generateImage} onChange={() => setGenerateImage(!generateImage)}>Generate Token Image</Checkbox>
+                                        <Checkbox
+                                            isChecked={generateImage}
+                                            onChange={() =>
+                                                setGenerateImage(!generateImage)
+                                            }
+                                        >
+                                            Generate Token Image
+                                        </Checkbox>
                                     </Box>
                                     <Box>
                                         <Center>
-                                            <Button isLoading={isLoading} colorScheme={"green"} bg={"green.400"} rounded={"full"} px={4} onClick={() => deployToken()}>
+                                            <Button
+                                                isLoading={isLoading}
+                                                colorScheme={"green"}
+                                                bg={"green.400"}
+                                                rounded={"full"}
+                                                px={4}
+                                                onClick={() => deployToken()}
+                                            >
                                                 Deploy Token
                                             </Button>
                                         </Center>
@@ -158,7 +254,6 @@ export default function Token() {
                             </FormControl>
                         </Box>
                     </CardBody>
-
                 </Card>
             </Container>
         </Box>

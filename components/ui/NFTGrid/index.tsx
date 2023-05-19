@@ -28,7 +28,6 @@ export function NFTGrid({ data }: { data: NFT[] }) {
 
     const { data: addressToTokenId } = useReadContractHook("tokenCounter", [])
 
-
     const selectNft = (nft: NFT) => {
         setMintingError("")
         setSuccess(false)
@@ -40,22 +39,22 @@ export function NFTGrid({ data }: { data: NFT[] }) {
         if (window.ethereum && window.ethereum.isMetaMask) {
             try {
                 await window.ethereum.request({
-                    method: 'wallet_watchAsset',
+                    method: "wallet_watchAsset",
                     params: {
-                        type: 'ERC721',
+                        type: "ERC721",
                         options: {
                             address: contractAddress,
                             tokenId: tokenId.toString(),
                         },
                     },
-                });
+                })
 
-                console.log('Token added to MetaMask wallet successfully.');
+                console.log("Token added to MetaMask wallet successfully.")
             } catch (error) {
-                console.error('Error adding token to MetaMask wallet:', error);
+                console.error("Error adding token to MetaMask wallet:", error)
             }
         } else {
-            console.error('MetaMask not detected.');
+            console.error("MetaMask not detected.")
         }
     }
 
